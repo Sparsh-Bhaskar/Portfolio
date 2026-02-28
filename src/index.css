@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT THEME */
+:root {
+  --color-primary: #3B4CCA;
+  --color-secondary: #FFDE00;
+
+  --color-background: #F8F8F8;
+  --color-surface: #FFFFFF;
+
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+
+  --color-border: #000000;
+
+  --color-success: #2ECC71;
+  --color-warning: #F39C12;
+  --color-error: #E74C3C;
+}
+
+/* DARK THEME - Deep Pokémon Night */
+.dark {
+  --color-primary: #FFDE00;
+  --color-secondary: #3B4CCA;
+
+  --color-background: #0B1A3A; /* deep navy blue */
+  --color-surface: #132B5C;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #C5D1FF;
+
+  --color-border: #FFFFFF;
+
+  --color-success: #2ECC71;
+  --color-warning: #F39C12;
+  --color-error: #E74C3C;
+}
+
+/* Global body style */
+body {
+  @apply bg-background text-textPrimary font-pixel;
+}
