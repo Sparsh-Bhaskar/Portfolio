@@ -10,16 +10,6 @@ import AdventureLog from "../sections/AdventureLog"
 import Achievements from "../sections/Achievements"
 import MessageGuild from "../sections/MessageGuild"
 
-const sectionsMap = {
-  "Spawn Area": <SpawnArea />,
-  "Character Stats": <CharacterStats />,
-  "Skill Tree": <SkillTree />,
-  "Quest Board": <QuestBoard />,
-  "Adventure Log": <AdventureLog />,
-  "Achievements": <Achievements />,
-  "Message Guild": <MessageGuild />,
-}
-
 const MainLayout = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [currentSection, setCurrentSection] = useState("Spawn Area")
@@ -39,6 +29,27 @@ const MainLayout = () => {
     }, 300)
 
     setMenuOpen(false)
+  }
+
+  const renderSection = () => {
+    switch (currentSection) {
+      case "Spawn Area":
+        return <SpawnArea goNext={() => handleSectionChange("Character Stats")} />
+      case "Character Stats":
+        return <CharacterStats />
+      case "Skill Tree":
+        return <SkillTree />
+      case "Quest Board":
+        return <QuestBoard />
+      case "Adventure Log":
+        return <AdventureLog />
+      case "Achievements":
+        return <Achievements />
+      case "Message Guild":
+        return <MessageGuild />
+      default:
+        return <SpawnArea goNext={() => handleSectionChange("Character Stats")} />
+    }
   }
 
   return (
@@ -71,7 +82,7 @@ const MainLayout = () => {
             ${isTransitioning ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}
           `}
         >
-          {sectionsMap[currentSection]}
+          {renderSection()}
         </div>
       </div>
 
