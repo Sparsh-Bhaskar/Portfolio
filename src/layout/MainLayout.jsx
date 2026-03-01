@@ -36,9 +36,9 @@ const MainLayout = () => {
       case "Spawn Area":
         return <SpawnArea goNext={() => handleSectionChange("Character Stats")} />
       case "Character Stats":
-        return <CharacterStats />
+        return <CharacterStats goNext={() => handleSectionChange("Skill Tree")} />
       case "Skill Tree":
-        return <SkillTree />
+        return <SkillTree goNext={() => handleSectionChange("Quest Board")} />
       case "Quest Board":
         return <QuestBoard />
       case "Adventure Log":
